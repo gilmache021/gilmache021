@@ -1,0 +1,12 @@
+#!/bin/env python3
+from time import sleep
+import os
+
+print("Looking for alive machines on network\n")
+sleep(3)
+
+port = 0
+
+while port < 255:
+	os.system(f'fping -g -r 1 20.20.{port}.0/25 | grep "alive"')
+	port += 1
